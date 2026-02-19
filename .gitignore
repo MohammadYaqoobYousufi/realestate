@@ -24,3 +24,13 @@ yarn-error.log*
 
 # large raw datasets
 ml/data/
+
+# ML / large artifacts
+ml/data/
+data/
+model_artifacts/
+*.wav
+*.csv
+*.parquet
+*.ipynb_checkpoints/
+
