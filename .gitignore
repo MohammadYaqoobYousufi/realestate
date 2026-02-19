@@ -34,3 +34,11 @@ model_artifacts/
 *.parquet
 *.ipynb_checkpoints/
 
+
+# ignore frontend build artifacts
+frontend/.cache/
+frontend/typescript/lib/
+frontend/react-icons/
+*.map
+assets/logo.png
+
