@@ -1,0 +1,41 @@
+name: Build backend image and export artifact
+
+# run manually or on pushes to main/refactor branches
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main, refactor/structure-agentic-2026 ]
+
+jobs:
+  build-and-export:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up QEMU (for cross-platform)
+        uses: docker/setup-qemu-action@v2
+
+      - name: Set up Docker buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build backend image
+        run: |
+          # tag the image predictably so we can save it to tar
+          export IMAGE_TAG=realestate-backend:ci-${{ github.run_id }}
+          docker build --platform linux/amd64 -f backend/Dockerfile -t $IMAGE_TAG .
+
+      - name: Save image to tar.gz
+        run: |
+          mkdir -p artifact
+          export IMAGE_TAG=realestate-backend:ci-${{ github.run_id }}
+          docker save $IMAGE_TAG | gzip -c > artifact/backend_image.tar.gz
+          ls -lh artifact/backend_image.tar.gz
+
+      - name: Upload built image artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: backend-image-tar
+          path: artifact/backend_image.tar.gz
+          
