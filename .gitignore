@@ -1,44 +1,91 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
-
-# testing
-/coverage
-
-# production
-/build
-
-# misc
-.DS_Store
+# Python
+__pycache__/
+*.pyc
+envs/
+venv/
+.env
 .env.local
-.env.development.local
-.env.test.local
-.env.production.local
+.env.*.local
 
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# large raw datasets
-ml/data/
-
-# ML / large artifacts
-ml/data/
-data/
-model_artifacts/
-*.wav
-*.csv
-*.parquet
-*.ipynb_checkpoints/
-
-
-# ignore frontend build artifacts
+# Node / Frontend
+node_modules/
+frontend/node_modules/
 frontend/.cache/
-frontend/typescript/lib/
-frontend/react-icons/
+dist/
+build/
 *.map
-assets/logo.png
 
+# Docker / system
+docker-compose.override.yml
+docker-compose.local.yml
+.DS_Store
+.vscode/
+.idea/
+
+# ML / Large files
+model_artifacts/
+ml/data/
+ml/*.parquet
+*.h5
+*.pt
+*.pkl
+*.ckpt
+*.tar.gz
+*.wav
+*.mp4
+
+# Editor / OS
+*.log
+*.swp
+*.swo
+*.tmp
+
+# Other
+assets/logo.png
+frontend/.cache/
+# Python
+__pycache__/
+*.pyc
+envs/
+venv/
+.env
+.env.local
+.env.*.local
+
+# Node / Frontend
+node_modules/
+frontend/node_modules/
+frontend/.cache/
+dist/
+build/
+*.map
+
+# Docker / system
+docker-compose.override.yml
+docker-compose.local.yml
+.DS_Store
+.vscode/
+.idea/
+
+# ML / Large files
+model_artifacts/
+ml/data/
+ml/*.parquet
+*.h5
+*.pt
+*.pkl
+*.ckpt
+*.tar.gz
+*.wav
+*.mp4
+
+# Editor / OS
+*.log
+*.swp
+*.swo
+*.tmp
+
+# Other
+assets/logo.png
+frontend/.cache/
