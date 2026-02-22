@@ -1,0 +1,3 @@
+Paste this single-line in a VS Code code-cursor (Copilot) and run it:
+
+"Create the files listed by path and contents in the current project exactly. After generating them, run 'powershell -ExecutionPolicy Bypass -File tools/automation/run_automation.ps1' in the terminal. If you prefer bash, run 'python3 tools/automation/generate_plan.py' then run the PowerShell runner under Windows. Don't proceed with history-rewrite unless the automation output tells you to set CONFIRM_REWRITE=true or create .confirm_rewrite."
